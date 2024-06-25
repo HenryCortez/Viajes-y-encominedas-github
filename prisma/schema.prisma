@@ -1,0 +1,256 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Enterprise {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  users    User[]
+  vehicles Vehicle[]
+
+  @@map("enterprises")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  name         String?
+  surname      String?
+  passwordHash String
+  passwordSalt String
+  status       Boolean       @default(true)
+  enterpriseId Int           @default(1)
+  driver       Driver?
+  requests     Request[]
+  reservations Reservation[]
+  enterprise   Enterprise    @relation(fields: [enterpriseId], references: [id])
+  UserRole     UserRole[]
+
+  @@map("users")
+}
+
+model Role {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  status   Boolean    @default(true)
+  MenuRole MenuRole[]
+  UserRole UserRole[]
+
+  @@map("roles")
+}
+
+model UserRole {
+  userId Int
+  roleId Int
+  status Boolean @default(true)
+  id     Int     @id @default(autoincrement())
+  role   Role    @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("users_roles")
+}
+
+model Menu {
+  id       Int        @id @default(autoincrement())
+  name     String     @unique
+  parentId Int?
+  status   Boolean    @default(true)
+  parent   Menu?      @relation("MenuSubmenus", fields: [parentId], references: [id])
+  submenus Menu[]     @relation("MenuSubmenus")
+  MenuRole MenuRole[]
+
+  @@map("menus")
+}
+
+model MenuRole {
+  id                 Int                  @id @default(autoincrement())
+  menuId             Int
+  roleId             Int
+  status             Boolean              @default(true)
+  menu               Menu                 @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  role               Role                 @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  MenuRolePermission MenuRolePermission[]
+
+  @@map("menus_roles")
+}
+
+model Permission {
+  id                 Int                  @id @default(autoincrement())
+  name               String               @unique
+  MenuRolePermission MenuRolePermission[]
+
+  @@map("permissions")
+}
+
+model MenuRolePermission {
+  id           Int        @id @default(autoincrement())
+  menuRoleId   Int
+  permissionId Int
+  status       Boolean    @default(true)
+  menuRole     MenuRole   @relation(fields: [menuRoleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@map("menus_roles_permissions")
+}
+
+model Driver {
+  id                  Int                 @id @default(autoincrement())
+  user_id             Int                 @unique
+  dataFile            String
+  status              Boolean             @default(false)
+  assignmentHistories AssignmentHistory[]
+  user                User                @relation(fields: [user_id], references: [id])
+  vehicles            Vehicle[]
+
+  @@map("drivers")
+}
+
+model Vehicle {
+  id                  Int                 @id @default(autoincrement())
+  licence_plate       String              @unique
+  brand               String
+  model               String
+  color               String
+  status              String
+  enterpriseId        Int?
+  driverId            Int?
+  typeId              Int
+  assignmentHistories AssignmentHistory[]
+  driver              Driver?             @relation(fields: [driverId], references: [id])
+  enterprise          Enterprise?         @relation(fields: [enterpriseId], references: [id])
+  type                VehicleType         @relation(fields: [typeId], references: [id])
+
+  @@map("vehicles")
+}
+
+model VehicleType {
+  id           Int       @id @default(autoincrement())
+  type         String
+  seats_amount Int
+  max_charge   Float
+  vehicles     Vehicle[]
+
+  @@map("vehicles_types")
+}
+
+model Request {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  requestDate DateTime
+  status      Boolean  @default(false)
+  dataFile    String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@map("requests")
+}
+
+model City {
+  id                Int            @id @default(autoincrement())
+  name              String         @unique
+  destinationRoutes Route[]        @relation("destination_city_id")
+  originRoutes      Route[]        @relation("origin_city_id")
+  routeDetails      RoutesDetail[]
+
+  @@map("cities")
+}
+
+model Route {
+  id                  Int            @id @default(autoincrement())
+  origin_city_id      Int
+  destination_city_id Int
+  destination_city    City           @relation("destination_city_id", fields: [destination_city_id], references: [id])
+  origin_city         City           @relation("origin_city_id", fields: [origin_city_id], references: [id])
+  routeDetails        RoutesDetail[]
+  travels             Travel[]
+
+  @@map("routes")
+}
+
+model RoutesDetail {
+  id      Int   @id @default(autoincrement())
+  city_id Int
+  routeId Int
+  city    City  @relation(fields: [city_id], references: [id])
+  route   Route @relation(fields: [routeId], references: [id])
+
+  @@map("routes_details")
+}
+
+model AssignmentHistory {
+  id          Int       @id @default(autoincrement())
+  driverId    Int
+  vehicleId   Int
+  date        DateTime  @default(now())
+  updatedDate DateTime?
+  driver      Driver    @relation(fields: [driverId], references: [id])
+  vehicle     Vehicle   @relation(fields: [vehicleId], references: [id])
+  travels     Travel[]
+
+  @@map("assignment_histories")
+}
+
+model Travel {
+  id                  Int               @id @default(autoincrement())
+  status              Status            @default(Activo)
+  departure_datetime  DateTime
+  assignmentHistoryId Int               @unique
+  availableSeats      Int
+  availableWeight     Float
+  routeId             Int
+  reservations        Reservation[]
+  assignmentHistory   AssignmentHistory @relation(fields: [assignmentHistoryId], references: [id])
+  route               Route             @relation(fields: [routeId], references: [id])
+
+  @@map("travels")
+}
+
+enum Status {
+  Activo
+  Viajando
+  Cancelado
+  Finalizado
+}
+
+model Price {
+  id                 Int                 @id @default(autoincrement())
+  value              Float
+  type               String
+  description        String
+  reservationDetails ReservationDetail[]
+
+  @@map("prices")
+}
+
+model Reservation {
+  id                 Int                 @id @default(autoincrement())
+  oLatitude          String
+  oLongitude         String
+  dLatitude          String
+  dLongitude         String
+  userId             Int
+  travelId           Int
+  total              Float                @default(0)
+  travel             Travel              @relation(fields: [travelId], references: [id])
+  user               User                @relation(fields: [userId], references: [id])
+  reservationDetails ReservationDetail[]
+
+  @@map("reservations")
+}
+
+model ReservationDetail {
+  id             Int         @id @default(autoincrement())
+  reservationId  Int
+  priceId        Int
+  reservedSeats  Int
+  reservedWeight Float
+  subtotal       Float
+  price          Price       @relation(fields: [priceId], references: [id])
+  reservation    Reservation @relation(fields: [reservationId], references: [id])
+
+  @@map("reservations_details")
+}
