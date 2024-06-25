@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TravelApplicationModule } from '../application/application.module';
+import { TravelApplicationModule } from '../Application/application.module';
 import { AuthorizationModule } from '../../authorization/authorization.module';
 import { CommonModule } from '../../common/common.module';
 import { TravelRepositoryAdapter } from './repositories/travel.repository.adapter';

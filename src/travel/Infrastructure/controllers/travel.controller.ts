@@ -1,11 +1,11 @@
 import { Body, Controller, Get, HttpStatus, Param, ParseIntPipe, Post, Put, Res } from '@nestjs/common';
 import { CreateAssignmentHistoryDto } from '../../Application/dtos/create-assigment-history';
 import { CreateTravelDto } from '../../Application/dtos/create-travel.dto';
-import { CreateAssignmentHistoryUsecase } from '../../application/usecases/create-assigment-history.usecase';
-import { CreateTravelUsecase } from '../../application/usecases/create-travel.usecase';
-import { ListTravelsUsecase } from '../../application/usecases/list-travel.usecase';
-import { UpdateAssignmentHistoryUsecase } from '../../application/usecases/update-assigment-history.usecase';
-import { UpdateTravelUsecase } from '../../application/usecases/update-travel.usecase';
+import { CreateAssignmentHistoryUsecase } from '../../Application/usecases/create-assigment-history.usecase';
+import { CreateTravelUsecase } from '../../Application/usecases/create-travel.usecase';
+import { ListTravelsUsecase } from '../../Application/usecases/list-travel.usecase';
+import { UpdateAssignmentHistoryUsecase } from '../../Application/usecases/update-assigment-history.usecase';
+import { UpdateTravelUsecase } from '../../Application/usecases/update-travel.usecase';
 
 @Controller('travels/')
 export class TravelController {
