@@ -1,5 +1,5 @@
 import { Driver } from '@prisma/client';
-import { UpdateRequestEvent } from 'src/request/Infrastructure/events/update.request.event';
+import { UpdateRequestEvent } from '../../../request/Infrastructure/events/update.request.event';
 
 export interface DriverRepositoryPort {
   createDriver(

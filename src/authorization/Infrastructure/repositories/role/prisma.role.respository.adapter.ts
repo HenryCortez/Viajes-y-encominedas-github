@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient, Role } from '@prisma/client';
-import { CreateRoleDto } from 'src/authorization/Application/dto/role/create-role.dto';
-import { UpdateRoleDto } from 'src/authorization/Application/dto/role/update-role.dto';
-import { RoleRepositoryPort } from 'src/authorization/Domain/repositories/role.repository.port';
+import { CreateRoleDto } from '../../../Application/dto/role/create-role.dto';
+import { UpdateRoleDto } from '../../../Application/dto/role/update-role.dto';
+import { RoleRepositoryPort } from '../../../Domain/repositories/role.repository.port';
 
 @Injectable()
 export class PrismaRoleRepositoryAdapter implements RoleRepositoryPort {

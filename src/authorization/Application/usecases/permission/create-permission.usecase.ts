@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { PermissionRepositoryPort } from 'src/authorization/Domain/repositories/permission.repository.port';
+import { PermissionRepositoryPort } from '../../../Domain/repositories/permission.repository.port';
 import { CreatePermissionDto } from '../../dto/permission/create-permission.dto';
 import { Permission } from '@prisma/client';
 

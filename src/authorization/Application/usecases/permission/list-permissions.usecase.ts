@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { Permission } from '@prisma/client';
-import { PermissionRepositoryPort } from 'src/authorization/Domain/repositories/permission.repository.port';
+import { PermissionRepositoryPort } from '../../../Domain/repositories/permission.repository.port';
 
 export class ListPermissionsUseCase {
   constructor(

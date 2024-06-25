@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common';
-import { DriverRepositoryPort } from 'src/driver/Domain/repositories/driver.repository.port';
+import { DriverRepositoryPort } from '../../Domain/repositories/driver.repository.port';
 import { Driver } from '@prisma/client';
-import { UpdateRequestEvent } from 'src/request/Infrastructure/events/update.request.event';
+import { UpdateRequestEvent } from '../../../request/Infrastructure/events/update.request.event';
 
 export class UpdateDriverUsecase {
   constructor(

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CommonModule } from 'src/common/common.module';
+import { CommonModule } from '../../common/common.module';
 import { CreateDriverUsecase } from './usecases/create-driver.useacase';
 import { DeleteDriverUsecase } from './usecases/delete-driver.usecase';
 import { UpdateDriverUsecase } from './usecases/update-driver.usecase';

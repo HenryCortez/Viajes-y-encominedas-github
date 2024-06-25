@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Patch, Post, Put, Res, UseGuards, UsePipes, ValidationPipe } from "@nestjs/common";
 import { VehicleType } from "@prisma/client";
-import { CreateVehicleTypeDto } from "src/vehicle/Application/dto/vehicleType/create-vehicleType.dto";
-import { updateVehicleTypeDto } from "src/vehicle/Application/dto/vehicleType/update-vehicleType.dto";
-import { CreateVehicleTypeUsecase, UpdateVehicleTypeUsecase, ListVehicleTypeUsecase, DeleteVehicleTypeUsecase } from "src/vehicle/Application/usecases";
+import { CreateVehicleTypeDto } from "../../Application/dto/vehicleType/create-vehicleType.dto";
+import { updateVehicleTypeDto } from "../../Application/dto/vehicleType/update-vehicleType.dto";
+import { CreateVehicleTypeUsecase, UpdateVehicleTypeUsecase, ListVehicleTypeUsecase, DeleteVehicleTypeUsecase } from "../../Application/usecases";
 
 @Controller('vehicleTypes/')
 export class VehicleTypeController {

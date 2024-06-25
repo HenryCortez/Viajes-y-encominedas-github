@@ -2,8 +2,8 @@
 import { Module } from '@nestjs/common';
 import { ApplicationAuthModule } from '../Application/application.module';
 import { AuthController } from './controllers/auth.controller';
-import { CommonModule } from 'src/common/common.module'; // Importa el PrismaModule
-import { ApplicationAuthorizationModule } from 'src/authorization/Application/application.module';
+import { CommonModule } from '../../common/common.module'; // Importa el PrismaModule
+import { ApplicationAuthorizationModule } from '../../authorization/Application/application.module';
 
 @Module({
   imports: [

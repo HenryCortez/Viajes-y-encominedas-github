@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Patch, Post, Put, Res, UseGuards, UsePipes, ValidationPipe } from "@nestjs/common";
 import { Vehicle } from "@prisma/client";
-import { Role } from "src/authorization/Infrastructure/decorators/authorization.decorator";
-import { AuthorizationGuard } from "src/authorization/Infrastructure/guards/authorization.guard";
-import { CreateVehicleDto } from "src/vehicle/Application/dto/vehicle/create-vehicle.dto";
-import { UpdateVehicleDto } from "src/vehicle/Application/dto/vehicle/update-vehicle.dto";
-import { CreateVehicleUsecase, DeleteVehicleUsecase, ListVehicleUsecase, UpdateVehicleUsecase } from "src/vehicle/Application/usecases";
+import { Role } from "../../../authorization/Infrastructure/decorators/authorization.decorator";
+import { AuthorizationGuard } from "../../../authorization/Infrastructure/guards/authorization.guard";
+import { CreateVehicleDto } from "../../Application/dto/vehicle/create-vehicle.dto";
+import { UpdateVehicleDto } from "../../Application/dto/vehicle/update-vehicle.dto";
+import { CreateVehicleUsecase, DeleteVehicleUsecase, ListVehicleUsecase, UpdateVehicleUsecase } from "../../Application/usecases";
 
 @Controller('vehicles/')
 //@UseGuards(AuthorizationGuard)

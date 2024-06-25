@@ -11,13 +11,13 @@ import {
   Res,
 } from '@nestjs/common';
 import { Permission } from '@prisma/client';
-import { CreatePermissionDto } from 'src/authorization/Application/dto/permission/create-permission.dto';
+import { CreatePermissionDto } from '../../../Application/dto/permission/create-permission.dto';
 import {
   CreatePermissionUseCase,
   DeletePermissionUseCase,
   ListPermissionsUseCase,
   UpdatePermissionUseCase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('permissions/')
 export class PermissionController {

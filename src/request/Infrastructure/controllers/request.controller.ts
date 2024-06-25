@@ -9,9 +9,9 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
-import { UpdateRequestDto } from 'src/request/Application/dtos/update-request.dto';
-import { GetRequestsByEntrerpriseIdUsecase } from 'src/request/Application/usecases/get-requests-by-enterprise-id.usecase';
-import { UpdateRequestUsecase } from 'src/request/Application/usecases/update-request.usecase';
+import { UpdateRequestDto } from '../../Application/dtos/update-request.dto';
+import { GetRequestsByEntrerpriseIdUsecase } from '../../Application/usecases/get-requests-by-enterprise-id.usecase';
+import { UpdateRequestUsecase } from '../../Application/usecases/update-request.usecase';
 
 @Controller('requests/')
 export class RequestController {

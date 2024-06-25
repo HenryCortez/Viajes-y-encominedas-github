@@ -1,9 +1,9 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
-import { UserRepositoryPort } from 'src/user/Domain/repositories/user.repository.port';
+import { UserRepositoryPort } from '../../Domain/repositories/user.repository.port';
 import { CreateUserDto } from '../../Application/dto/create-user.dto';
-import { UpdateUserDto } from 'src/user/Application/dto/update-user.dto';
+import { UpdateUserDto } from '../../Application/dto/update-user.dto';
 
 
 @Injectable()

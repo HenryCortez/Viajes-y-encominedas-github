@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { EnterpriseRepositoryPort } from 'src/enterprise/Domain/repositories/enterprise.repository.port';
+import { EnterpriseRepositoryPort } from '../../Domain/repositories/enterprise.repository.port';
 
 export class DeleteEnterpriseUsecase {
   constructor(

@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, HttpStatus, Param, ParseIntPipe, Post, Put, Res } from "@nestjs/common";
-import { CreateReservationDto } from "src/reservation/Application/dtos/create-reservation.dto";
-import { CancelReservationUsecase } from "src/reservation/Application/usecases/cancel-reservation.usecase";
-import { CreateReservationUsecase } from "src/reservation/Application/usecases/create-reservation.usecase";
-import { ListReservationDetailssUsecase } from "src/reservation/Application/usecases/list-reservation-details.usecase";
-import { ListReservationsUsecase } from "src/reservation/Application/usecases/list-reservations.usecase";
-import { UpdateReservationUsecase } from "src/reservation/Application/usecases/update-reservation.usecase";
+import { CreateReservationDto } from "../../Application/dtos/create-reservation.dto";
+import { CancelReservationUsecase } from "../../Application/usecases/cancel-reservation.usecase";
+import { CreateReservationUsecase } from "../../Application/usecases/create-reservation.usecase";
+import { ListReservationDetailssUsecase } from "../../Application/usecases/list-reservation-details.usecase";
+import { ListReservationsUsecase } from "../../Application/usecases/list-reservations.usecase";
+import { UpdateReservationUsecase } from "../../Application/usecases/update-reservation.usecase";
 
 
 @Controller('reservations/')

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { AuthRepositoryPort } from 'src/auth/Domain/repositories/auth.repository.port';
-import { LogUserDto } from 'src/auth/Application/dto/log-user.dto';
+import { AuthRepositoryPort } from '../../Domain/repositories/auth.repository.port';
+import { LogUserDto } from '../../Application/dto/log-user.dto';
 
 @Injectable()
 export class LogUserUseCase {

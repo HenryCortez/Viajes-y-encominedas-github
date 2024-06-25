@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CommonModule } from 'src/common/common.module';
+import { CommonModule } from '../../common/common.module';
 import { CancelReservationUsecase } from './usecases/cancel-reservation.usecase';
 import { CreateReservationUsecase } from './usecases/create-reservation.usecase';
 import { ListReservationsUsecase } from './usecases/list-reservations.usecase';

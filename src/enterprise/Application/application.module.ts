@@ -5,7 +5,7 @@ import { ListEnterprisesUsecase } from './usecases/list-enterprises.usecase';
 import { GetEnterpriseByIdUsecase } from './usecases/get-enterprise-by-id.usecase';
 import { UpdateEnterpriseUsecase } from './usecases/update-enterprise.usecase';
 import { EnterpriseRepositoryAdapter } from '../Infrastructure/repositories/enterprise.repository.adapter';
-import { CommonModule } from 'src/common/common.module';
+import { CommonModule } from '../../common/common.module';
 
 @Module({
   imports: [CommonModule],

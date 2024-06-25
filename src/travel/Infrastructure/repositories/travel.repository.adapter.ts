@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { $Enums, PrismaClient } from '@prisma/client';
-import { CreateAssignmentHistoryDto } from 'src/travel/Application/dtos/create-assigment-history';
-import { CreateTravelDto } from 'src/travel/Application/dtos/create-travel.dto';
-import { TravelRepositoryPort } from 'src/travel/Domain/repositories/travel.repository,port';
+import { CreateAssignmentHistoryDto } from '../../Application/dtos/create-assigment-history';
+import { CreateTravelDto } from '../../Application/dtos/create-travel.dto';
+import { TravelRepositoryPort } from '../../Domain/repositories/travel.repository,port';
 
 @Injectable()
 export class TravelRepositoryAdapter implements TravelRepositoryPort {

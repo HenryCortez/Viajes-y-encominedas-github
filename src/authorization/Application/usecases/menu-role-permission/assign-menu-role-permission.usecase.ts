@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { MenuRolePermission } from '@prisma/client';
-import { MenuRolePermissionRepositoryPort } from 'src/authorization/Domain/repositories/menu-role-permission.repository.port';
+import { MenuRolePermissionRepositoryPort } from '../../../Domain/repositories/menu-role-permission.repository.port';
 
 export class AssignMenuRolePermissionUseCase {
   constructor(

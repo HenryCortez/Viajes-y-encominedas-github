@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { TravelRepositoryPort } from 'src/travel/Domain/repositories/travel.repository,port';
+import { TravelRepositoryPort } from '../../Domain/repositories/travel.repository,port';
 import { CreateAssignmentHistoryDto } from '../dtos/create-assigment-history';
 
 

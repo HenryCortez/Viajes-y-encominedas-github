@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PrismaClient } from '@prisma/client';
-import { jwtConstants } from 'src/auth/Application/constants';
+import { jwtConstants } from '../auth/Application/constants';
 
 @Module({
   imports: [

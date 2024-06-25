@@ -1,10 +1,10 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { Vehicle, PrismaClient, VehicleType } from '@prisma/client';
-import { CreateVehicleDto } from 'src/vehicle/Application/dto/vehicle/create-vehicle.dto';
-import { UpdateVehicleDto } from 'src/vehicle/Application/dto/vehicle/update-vehicle.dto';
-import { CreateVehicleTypeDto } from 'src/vehicle/Application/dto/vehicleType/create-vehicleType.dto';
-import { updateVehicleTypeDto } from 'src/vehicle/Application/dto/vehicleType/update-vehicleType.dto';
-import { VehicleRepositoryPort } from 'src/vehicle/Domain/repositories/vehicle.repository.port';
+import { UpdateVehicleDto } from '../../Application/dto/vehicle/update-vehicle.dto';
+import { CreateVehicleTypeDto } from '../../Application/dto/vehicleType/create-vehicleType.dto';
+import { updateVehicleTypeDto } from '../../Application/dto/vehicleType/update-vehicleType.dto';
+import { VehicleRepositoryPort } from '../../Domain/repositories/vehicle.repository.port';
+import { CreateVehicleDto } from '../../Application/dto/vehicle/create-vehicle.dto';
 
 @Injectable()
 export class PrismaVehicleRepositoryAdapter implements VehicleRepositoryPort {

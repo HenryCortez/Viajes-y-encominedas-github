@@ -11,15 +11,15 @@ import {
   Res,
 } from '@nestjs/common';
 import { Role } from '@prisma/client';
-import { CreateRoleDto } from 'src/authorization/Application/dto/role/create-role.dto';
-import { UpdateRoleDto } from 'src/authorization/Application/dto/role/update-role.dto';
+import { CreateRoleDto } from '../../../Application/dto/role/create-role.dto';
+import { UpdateRoleDto } from '../../../Application/dto/role/update-role.dto';
 import {
   CreateRoleUsecase,
   DeleteRoleUsecase,
   FindRoleByNameUsecase,
   ListRolesUsecase,
   UpdateRoleUsecase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('roles/')
 export class RoleController {

@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { MenuRepositoryPort } from 'src/authorization/Domain/repositories/menu.repository.port';
+import { MenuRepositoryPort } from '../../../Domain/repositories/menu.repository.port';
 
 export class DeleteMenuUsecase {
   constructor(

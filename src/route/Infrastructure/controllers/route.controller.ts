@@ -9,12 +9,12 @@ import {
 } from '@nestjs/common';
 import { Routes } from '@nestjs/core';
 import { Route, RoutesDetail } from '@prisma/client';
-import { CreateRouteDetailDto } from 'src/route/Application/dtos/create-route-detail.dto';
-import { CreateRouteDto } from 'src/route/Application/dtos/create-route.dto';
-import { CreateRouteDetailUsecase } from 'src/route/Application/usecases/create-route-detail.usecase';
-import { CreateRouteUsecase } from 'src/route/Application/usecases/create-route.usecase';
-import { GetRoutesByDestinationCityNameUsecase } from 'src/route/Application/usecases/get-routes-by-destination-city-name.usecase';
-import { GetRoutesByOriginCityNameUsecase } from 'src/route/Application/usecases/get-routes-by-origin-city-name.usecase';
+import { CreateRouteDetailDto } from '../../Application/dtos/create-route-detail.dto';
+import { CreateRouteDto } from '../../Application/dtos/create-route.dto';
+import { CreateRouteDetailUsecase } from '../../Application/usecases/create-route-detail.usecase';
+import { CreateRouteUsecase } from '../../Application/usecases/create-route.usecase';
+import { GetRoutesByDestinationCityNameUsecase } from '../../Application/usecases/get-routes-by-destination-city-name.usecase';
+import { GetRoutesByOriginCityNameUsecase } from '../../Application/usecases/get-routes-by-origin-city-name.usecase';
 
 @Controller('routes/')
 export class RouteController {

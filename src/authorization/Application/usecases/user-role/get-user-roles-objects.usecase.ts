@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { Role } from '@prisma/client';
-import { UserRoleRepositoryPort } from 'src/authorization/Domain/repositories/user-role.repository.port';
+import { UserRoleRepositoryPort } from '../../../Domain/repositories/user-role.repository.port';
 
 export class GetUserRolesUsecaseObjects {
   constructor(

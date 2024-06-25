@@ -12,11 +12,11 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreateDriverDto } from 'src/driver/Application/dtos/create-driver.dto';
-import { CreateDriverUsecase } from 'src/driver/Application/usecases/create-driver.useacase';
-import { DeleteDriverUsecase } from 'src/driver/Application/usecases/delete-driver.usecase';
-import { ListDriversUsecase } from 'src/driver/Application/usecases/list-drivers.usecase';
-import { UpdateDriverUsecase } from 'src/driver/Application/usecases/update-driver.usecase';
+import { CreateDriverDto } from '../../Application/dtos/create-driver.dto';
+import { CreateDriverUsecase } from '../../Application/usecases/create-driver.useacase';
+import { DeleteDriverUsecase } from '../../Application/usecases/delete-driver.usecase';
+import { ListDriversUsecase } from '../../Application/usecases/list-drivers.usecase';
+import { UpdateDriverUsecase } from '../../Application/usecases/update-driver.usecase';
 
 @Controller('drivers/')
 export class DriverController {

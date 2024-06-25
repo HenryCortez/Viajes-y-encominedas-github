@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { Menu, PrismaClient } from '@prisma/client';
-import { CreateMenuDto } from 'src/authorization/Application/dto/menu/create-menu.dto';
-import { UpdateMenuDto } from 'src/authorization/Application/dto/menu/update-menu.dto';
-import { MenuRepositoryPort } from 'src/authorization/Domain/repositories/menu.repository.port';
+import { CreateMenuDto } from '../../../Application/dto/menu/create-menu.dto';
+import { UpdateMenuDto } from '../../../Application/dto/menu/update-menu.dto';
+import { MenuRepositoryPort } from '../../../Domain/repositories/menu.repository.port';
 
 @Injectable()
 export class PrismaMenuRepositoryAdapter implements MenuRepositoryPort {

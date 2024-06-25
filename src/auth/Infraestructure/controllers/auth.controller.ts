@@ -1,11 +1,11 @@
 import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
 import { LogUserDto } from '../../Application/dto/log-user.dto';
-import { LogUserUseCase } from 'src/auth/Application/usecases/log-user.usecase';
+import { LogUserUseCase } from '../../Application/usecases/log-user.usecase';
 import {
   GetMenuRolesUseCase,
   GetUserRolesUsecase,
   GetUserRolesUsecaseObjects,
-} from 'src/authorization/Application/usecases';
+} from '../../../authorization/Application/usecases';
 
 @Controller('/auth')
 export class AuthController {

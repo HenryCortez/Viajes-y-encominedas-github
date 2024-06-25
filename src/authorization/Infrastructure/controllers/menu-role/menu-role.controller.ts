@@ -14,7 +14,7 @@ import {
   AssignMenuRoleUseCase,
   GetMenuRolesUseCase,
   RemoveMenuRoleUseCase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('menu-role/')
 export class MenuRoleController {

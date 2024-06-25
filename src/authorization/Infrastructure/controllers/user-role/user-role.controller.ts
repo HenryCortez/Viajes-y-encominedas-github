@@ -14,7 +14,7 @@ import {
   AssignUserRoleUsecase,
   GetUserRolesUsecase,
   RemoveUserRoleUsecase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('user-roles/')
 export class UserRoleController {

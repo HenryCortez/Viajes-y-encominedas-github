@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Enterprise, PrismaClient } from '@prisma/client';
-import { CreateEnterpriseDto } from 'src/enterprise/Application/dtos/create-enterprise.dto';
-import { EnterpriseRepositoryPort } from 'src/enterprise/Domain/repositories/enterprise.repository.port';
+import { CreateEnterpriseDto } from '../../Application/dtos/create-enterprise.dto';
+import { EnterpriseRepositoryPort } from '../../Domain/repositories/enterprise.repository.port';
 
 @Injectable()
 export class EnterpriseRepositoryAdapter implements EnterpriseRepositoryPort {

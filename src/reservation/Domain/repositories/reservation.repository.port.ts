@@ -1,5 +1,5 @@
 import { Reservation, ReservationDetail } from "@prisma/client";
-import { CreateReservationDto } from "src/reservation/Application/dtos/create-reservation.dto";
+import { CreateReservationDto } from "../../Application/dtos/create-reservation.dto";
 
 export interface ReservationRepositoryPort {
     createReservation(reservation: CreateReservationDto): Promise<Reservation>;

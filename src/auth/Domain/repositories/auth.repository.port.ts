@@ -1,4 +1,4 @@
-import { LogUserDto } from 'src/auth/Application/dto/log-user.dto';
+import { LogUserDto } from '../../Application/dto/log-user.dto';
 
 export interface AuthRepositoryPort {
     logUser(logUserDto: LogUserDto): Promise<any>;

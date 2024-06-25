@@ -1,4 +1,4 @@
-import { CreateUserDto } from 'src/user/Application/dto/create-user.dto';
+import { CreateUserDto } from '../../Application/dto/create-user.dto';
 
 export interface UserRepositoryPort {
   createUser(user: CreateUserDto): Promise<any>;

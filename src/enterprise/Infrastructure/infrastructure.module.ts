@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { AuthorizationModule } from 'src/authorization/authorization.module';
-import { CommonModule } from 'src/common/common.module';
+import { AuthorizationModule } from '../../authorization/authorization.module';
+import { CommonModule } from '../../common/common.module';
 import { EnterpriseApplicationModule } from '../Application/application.module';
 import { EnterpriseRepositoryAdapter } from './repositories/enterprise.repository.adapter';
 import { EnterpriseController } from './controllers/enterprise.controller';

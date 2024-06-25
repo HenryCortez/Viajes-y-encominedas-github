@@ -14,7 +14,7 @@ import {
   AssignMenuRolePermissionUseCase,
   GetMenuRolePermissionsUseCase,
   RemoveMenuRolePermissionUsecase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('menu-role-permission/')
 export class MenuRolePermissionController {

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CommonModule } from 'src/common/common.module';
+import { CommonModule } from '../../common/common.module';
 import * as Usecases from './usecases/index';
 import { PrismaRoleRepositoryAdapter } from '../Infrastructure/repositories/role/prisma.role.respository.adapter';
 import { PrismaUserRoleRepositoryAdapter } from '../Infrastructure/repositories/user-role/prisma.user-role.repository.adapter';

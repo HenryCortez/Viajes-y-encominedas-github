@@ -11,15 +11,15 @@ import {
   Res,
 } from '@nestjs/common';
 import { Menu } from '@prisma/client';
-import { CreateMenuDto } from 'src/authorization/Application/dto/menu/create-menu.dto';
-import { UpdateMenuDto } from 'src/authorization/Application/dto/menu/update-menu.dto';
+import { CreateMenuDto } from '../../../Application/dto/menu/create-menu.dto';
+import { UpdateMenuDto } from '../../../Application/dto/menu/update-menu.dto';
 import {
   CreateMenuUsecase,
   DeleteMenuUsecase,
   FindByNameUsecase,
   ListMenusUsecase,
   UpdateMenuUsecase,
-} from 'src/authorization/Application/usecases';
+} from '../../../Application/usecases';
 
 @Controller('menus/')
 export class MenuController {

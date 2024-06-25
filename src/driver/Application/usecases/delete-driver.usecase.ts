@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { DriverRepositoryPort } from 'src/driver/Domain/repositories/driver.repository.port';
+import { DriverRepositoryPort } from '../../Domain/repositories/driver.repository.port';
 
 export class DeleteDriverUsecase {
   constructor(

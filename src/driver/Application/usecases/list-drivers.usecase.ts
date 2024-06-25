@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { Driver } from '@prisma/client';
-import { DriverRepositoryPort } from 'src/driver/Domain/repositories/driver.repository.port';
+import { DriverRepositoryPort } from '../../Domain/repositories/driver.repository.port';
 
 export class ListDriversUsecase {
   constructor(

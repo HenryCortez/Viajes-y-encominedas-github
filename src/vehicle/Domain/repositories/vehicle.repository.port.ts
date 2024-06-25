@@ -1,8 +1,8 @@
 import { VehicleType } from "@prisma/client";
-import { CreateVehicleDto} from "src/vehicle/Application/dto/vehicle/create-vehicle.dto";
-import { UpdateVehicleDto } from "src/vehicle/Application/dto/vehicle/update-vehicle.dto";
-import { CreateVehicleTypeDto } from "src/vehicle/Application/dto/vehicleType/create-vehicleType.dto";
-import { updateVehicleTypeDto } from "src/vehicle/Application/dto/vehicleType/update-vehicleType.dto";
+import { CreateVehicleDto} from "../../Application/dto/vehicle/create-vehicle.dto";
+import { UpdateVehicleDto } from "../../Application/dto/vehicle/update-vehicle.dto";
+import { CreateVehicleTypeDto } from "../../Application/dto/vehicleType/create-vehicleType.dto";
+import { updateVehicleTypeDto } from "../../Application/dto/vehicleType/update-vehicleType.dto";
 
 export interface VehicleRepositoryPort {
     createVehicle(vehicle: any): Promise<any>;

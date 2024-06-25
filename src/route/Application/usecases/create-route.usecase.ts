@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { RouteRepositoryPort } from 'src/route/Domain/repositories/route.repository.port';
+import { RouteRepositoryPort } from '../../Domain/repositories/route.repository.port';
 import { CreateRouteDto } from '../dtos/create-route.dto';
 
 export class CreateRouteUsecase {

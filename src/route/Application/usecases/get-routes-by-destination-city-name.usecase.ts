@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { Route } from '@prisma/client';
-import { RouteRepositoryPort } from 'src/route/Domain/repositories/route.repository.port';
+import { RouteRepositoryPort } from '../../Domain/repositories/route.repository.port';
 
 export class GetRoutesByDestinationCityNameUsecase {
   constructor(

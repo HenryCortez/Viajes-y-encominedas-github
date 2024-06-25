@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Permission, PrismaClient } from '@prisma/client';
-import { CreatePermissionDto } from 'src/authorization/Application/dto/permission/create-permission.dto';
-import { PermissionRepositoryPort } from 'src/authorization/Domain/repositories/permission.repository.port';
+import { CreatePermissionDto } from '../../../Application/dto/permission/create-permission.dto';
+import { PermissionRepositoryPort } from '../../../Domain/repositories/permission.repository.port';
 
 @Injectable()
 export class PrismaPermissionRepositoryAdapter

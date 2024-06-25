@@ -16,16 +16,16 @@ import {
   Req,
 } from '@nestjs/common';
 
-import { CreateUserUseCase } from 'src/user/Application/usecases/create-user.usecase';
-import { DeleteUserUseCase } from 'src/user/Application/usecases/delete-user.usecase';
-import { ListUserUseCase } from 'src/user/Application/usecases/list-user.usecase';
-import { UpdateUserUseCase } from 'src/user/Application/usecases/update-user.usecase';
+import { CreateUserUseCase } from '../../Application/usecases/create-user.usecase';
+import { DeleteUserUseCase } from '../../Application/usecases/delete-user.usecase';
+import { ListUserUseCase } from '../../Application/usecases/list-user.usecase';
+import { UpdateUserUseCase } from '../../Application/usecases/update-user.usecase';
 import { CreateUserDto } from '../../Application/dto/create-user.dto';
 import { UpdateUserDto } from '../../Application/dto/update-user.dto';
 import { Role } from 'src/authorization/Infrastructure/decorators/authorization.decorator';
-import { AuthorizationGuard } from 'src/authorization/Infrastructure/guards/authorization.guard';
-import { AuthGuard } from 'src/auth/Infraestructure/guards/auth.guard';
-import { UpdatePasswordUserUseCase } from 'src/user/Application/usecases/update-pw-user.usecase';
+import { AuthorizationGuard } from '../../../authorization/Infrastructure/guards/authorization.guard';
+import { AuthGuard } from '../../../auth/Infraestructure/guards/auth.guard';
+import { UpdatePasswordUserUseCase } from '../../Application/usecases/update-pw-user.usecase';
 
 @Controller('users/')
 export class UserController {

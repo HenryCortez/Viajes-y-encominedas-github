@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClient, Request } from '@prisma/client';
-import { NewDriverEvent } from 'src/driver/Infrastructure/events/new.driver.event';
-import { UpdateRequestDto } from 'src/request/Application/dtos/update-request.dto';
-import { RequestRepositoryPort } from 'src/request/Domain/repositories/request.repository.port';
+import { NewDriverEvent } from '../../../driver/Infrastructure/events/new.driver.event';
+import { UpdateRequestDto } from '../../Application/dtos/update-request.dto';
+import { RequestRepositoryPort } from '../../Domain/repositories/request.repository.port';
 import { UpdateRequestEvent } from '../events/update.request.event';
 
 @Injectable()

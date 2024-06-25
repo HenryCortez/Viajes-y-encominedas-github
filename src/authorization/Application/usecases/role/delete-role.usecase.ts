@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { RoleRepositoryPort } from 'src/authorization/Domain/repositories/role.repository.port';
+import { RoleRepositoryPort } from '../../../Domain/repositories/role.repository.port';
 
 export class DeleteRoleUsecase {
   constructor(
