@@ -3,7 +3,7 @@ import { CommonModule } from '../../common/common.module';
 import { LogUserUseCase } from './usecases/log-user.usecase';
 
 import { PrismaAuthRepositoryAdapter } from '../Infraestructure/repositories/prisma.auth.repository.adapter';
-import { UserModule } from '../../user/user.module';
+import { UserModule } from '../../User/user.module';
 
 @Module({
   imports: [CommonModule, UserModule],

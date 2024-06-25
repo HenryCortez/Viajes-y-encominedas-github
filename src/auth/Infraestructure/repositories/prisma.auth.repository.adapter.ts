@@ -4,7 +4,7 @@ import { AuthRepositoryPort } from '../../Domain/repositories/auth.repository.po
 import { LogUserDto } from '../../Application/dto/log-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { UserRepositoryPort } from '../../../user/Domain/repositories/user.repository.port';
+import { UserRepositoryPort } from '../../../User/Domain/repositories/user.repository.port';
 
 @Injectable()
 export class PrismaAuthRepositoryAdapter implements AuthRepositoryPort {
