@@ -8,14 +8,19 @@ import {
   ParseIntPipe,
   Post,
   Res,
+  UseGuards,
 } from '@nestjs/common';
-import { Role } from '@prisma/client';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Role as PrismaRole } from '@prisma/client';
 import {
   AssignUserRoleUsecase,
   GetUserRolesUsecase,
   RemoveUserRoleUsecase,
-} from '../../../Application/usecases';
+} from 'src/authorization/Application/usecases';
+import { AuthGuard } from 'src/auth/Infraestructure/guards/auth.guard';
+import { CreateUserRoleDto } from 'src/authorization/Application/dto/user-role/create-user-role.dto';
 
+@ApiTags('Roles-Usuarios')
 @Controller('user-roles/')
 export class UserRoleController {
   constructor(
@@ -25,28 +30,46 @@ export class UserRoleController {
   ) {}
 
   @Get(':id')
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard)
+  @ApiOperation({
+    summary: 'Listar Roles por Usuario',
+    description:
+      'Este endpoint es accesible por los roles: todo tipo de usuario.',
+  })
   async getUserRoles(
     @Res() request,
-    @Param('id', ParseIntPipe) id: number,
+    @Param('email') email: string,
   ): Promise<string[]> {
-    const roles: string[] = await this.getUserRolesUsecase.execute(id);
+    const roles: string[] = await this.getUserRolesUsecase.execute(email);
     return request.status(HttpStatus.OK).json(roles);
   }
 
   @Post('/create')
+  @ApiOperation({
+    summary: 'Asignar un rol a un usuario',
+    description:
+      'Este endpoint es accesible por los roles: todo tipo de usuario.',
+  })
   async assignUserRole(
     @Res() request,
-    @Body('userId', ParseIntPipe) userId: number,
-    @Body('roleId', ParseIntPipe) roleId: number,
-  ): Promise<Role> {
+    @Body() userRole: CreateUserRoleDto,
+  ): Promise<PrismaRole> {
     const createdRole = await this.assignUserRoleUsecase.execute(
-      userId,
-      roleId,
+      userRole.userId,
+      userRole.roleId,
     );
     return request.status(HttpStatus.OK).json(createdRole);
   }
 
   @Delete(':userId/:roleId')
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard)
+  @ApiOperation({
+    summary: 'Eliminar un rol de un usuario',
+    description:
+      'Este endpoint es accesible por los roles: todo tipo de usuario.',
+  })
   async removeUserRole(
     @Res() request,
     @Param('userId', ParseIntPipe) userId: number,

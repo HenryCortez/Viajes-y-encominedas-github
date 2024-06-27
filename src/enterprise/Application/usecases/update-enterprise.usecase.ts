@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common';
 import { EnterpriseRepositoryPort } from '../../Domain/repositories/enterprise.repository.port';
 import { Enterprise } from '@prisma/client';
-import { CreateEnterpriseDto } from '../../Application/dtos/create-enterprise.dto';
+import { CreateEnterpriseDto } from 'src/enterprise/Application/dtos/create-enterprise.dto';
 
 export class UpdateEnterpriseUsecase {
   constructor(

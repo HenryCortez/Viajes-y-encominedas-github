@@ -42,9 +42,9 @@ export class AuthorizationGuard implements CanActivate {
       throw new ForbiddenException('Acceso No Autorizado');
     }
 
-    const userId = decodedToken.sub;
+    const email = decodedToken.email;
 
-    const userRoles = await this.UserRoleRepository.getUserRolesObjects(userId);
+    const userRoles = await this.UserRoleRepository.getUserRolesObjects(email);
 
     const hasRequiredRole = userRoles.some((role) =>
       requiredRoles.includes(role.name),

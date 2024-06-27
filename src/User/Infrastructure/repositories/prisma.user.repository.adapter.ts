@@ -1,9 +1,10 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 
-import { UserRepositoryPort } from '../../Domain/repositories/user.repository.port';
+import { UserRepositoryPort } from 'src/User/Domain/repositories/user.repository.port';
 import { CreateUserDto } from '../../Application/dto/create-user.dto';
-import { UpdateUserDto } from '../../Application/dto/update-user.dto';
+import { UpdateUserDto } from 'src/User/Application/dto/update-user.dto';
+
 
 
 @Injectable()
@@ -90,5 +91,29 @@ export class PrismaUserRepositoryAdapter implements UserRepositoryPort {
       console.error(error);
       return false;
     }
+  }
+
+  async updateUserEnterprise(userId: number, enterpriseId: number): Promise<any> {
+    try {
+    const isDriver = await this.prisma.driver.findUnique({
+      where: { user_id: userId },
+    });
+    if (!isDriver || enterpriseId == 1) {
+      throw new Error('Driver not found');
+    }
+    await this.prisma.wallet.create({
+      data: {
+        balance: 0,
+        driverId: isDriver.id,
+      },
+    });
+  } catch (error) {
+    console.error("error");
+  }
+      return await this.prisma.user.update({
+        where: { id: userId },
+        data: { enterpriseId: enterpriseId },
+      });
+    
   }
 }

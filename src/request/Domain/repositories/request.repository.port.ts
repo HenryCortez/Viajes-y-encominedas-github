@@ -1,5 +1,5 @@
 import { Request } from '@prisma/client';
-import { NewDriverEvent } from '../../../driver/Infrastructure/events/new.driver.event';
+import { NewDriverEvent } from 'src/driver/Infrastructure/events/new.driver.event';
 
 export interface RequestRepositoryPort {
   createRequest(payload: NewDriverEvent): Promise<Request>;

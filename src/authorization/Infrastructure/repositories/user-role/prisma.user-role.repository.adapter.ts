@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient, Role, UserRole } from '@prisma/client';
-import { UserRoleRepositoryPort } from '../../../Domain/repositories/user-role.repository.port';
+import { UserRoleRepositoryPort } from 'src/authorization/Domain/repositories/user-role.repository.port';
 
 @Injectable()
 export class PrismaUserRoleRepositoryAdapter implements UserRoleRepositoryPort {
@@ -33,10 +33,14 @@ export class PrismaUserRoleRepositoryAdapter implements UserRoleRepositoryPort {
       return false;
     }
   }
-  async getUserRoles(userId: number): Promise<string[]> {
+  async getUserRoles(userEmail: string): Promise<string[]> {
+    const user = await this.prisma.user.findFirst({
+      where: { email: userEmail },
+    });
+
     const roles = await this.prisma.userRole
       .findMany({
-        where: { userId: userId, status: true },
+        where: { userId: user.id, status: true },
         include: { role: true },
       })
       .then((userRoles) => userRoles.map((userRole) => userRole.role.name));
@@ -44,10 +48,14 @@ export class PrismaUserRoleRepositoryAdapter implements UserRoleRepositoryPort {
     return roles;
   }
 
-  async getUserRolesObjects(userId: number): Promise<Role[]> {
+  async getUserRolesObjects(userEmail: string): Promise<Role[]> {
+    const user = await this.prisma.user.findFirst({
+      where: { email: userEmail },
+    });
+
     const roles = await this.prisma.userRole
       .findMany({
-        where: { userId: userId, status: true },
+        where: { userId: user.id, status: true },
         include: { role: true },
       })
       .then((userRoles) => userRoles.map((userRole) => userRole.role));

@@ -3,9 +3,9 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
 import { Driver, PrismaClient } from '@prisma/client';
-import { DriverRepositoryPort } from '../../Domain/repositories/driver.repository.port';
+import { DriverRepositoryPort } from 'src/driver/Domain/repositories/driver.repository.port';
 import { NewDriverEvent } from '../events/new.driver.event';
-import { UpdateRequestEvent } from '../../../request/Infrastructure/events/update.request.event';
+import { UpdateRequestEvent } from 'src/request/Infrastructure/events/update.request.event';
 
 @Injectable()
 export class DriverRepositoryAdapter implements DriverRepositoryPort {

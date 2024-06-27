@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { UserRoleRepositoryPort } from '../../../Domain/repositories/user-role.repository.port';
+import { UserRoleRepositoryPort } from 'src/authorization/Domain/repositories/user-role.repository.port';
 
 export class RemoveUserRoleUsecase {
   constructor(

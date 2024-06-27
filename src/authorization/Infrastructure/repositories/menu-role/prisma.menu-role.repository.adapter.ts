@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { MenuRole, PrismaClient } from '@prisma/client';
-import { MenuRoleRepositoryPort } from '../../../Domain/repositories/menu-role.repository.port';
+import { MenuRoleRepositoryPort } from 'src/authorization/Domain/repositories/menu-role.repository.port';
 
 @Injectable()
 export class PrismaMenuRoleRepositoryAdapter implements MenuRoleRepositoryPort {

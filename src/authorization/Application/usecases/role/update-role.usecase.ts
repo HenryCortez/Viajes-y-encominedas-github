@@ -1,4 +1,4 @@
-import { RoleRepositoryPort } from '../../../Domain/repositories/role.repository.port';
+import { RoleRepositoryPort } from 'src/authorization/Domain/repositories/role.repository.port';
 import { UpdateRoleDto } from '../../dto/role/update-role.dto';
 import { Role } from '@prisma/client';
 import { Inject } from '@nestjs/common';

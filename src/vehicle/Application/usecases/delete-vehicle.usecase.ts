@@ -1,5 +1,5 @@
 import {Inject} from '@nestjs/common';
-import {VehicleRepositoryPort} from '../../Domain/repositories/vehicle.repository.port';
+import {VehicleRepositoryPort} from 'src/vehicle/Domain/repositories/vehicle.repository.port';
 
 export class DeleteVehicleUsecase {
   constructor(

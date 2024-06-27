@@ -1,4 +1,4 @@
-import { CreateUserDto } from '../../Application/dto/create-user.dto';
+import { CreateUserDto } from 'src/User/Application/dto/create-user.dto';
 
 export interface UserRepositoryPort {
   createUser(user: CreateUserDto): Promise<any>;
@@ -8,4 +8,5 @@ export interface UserRepositoryPort {
   findByEmail(email: string): Promise<any>;
   updatePassword(token: string, user: Partial<CreateUserDto>): Promise<any>;
   updateEnterprise(userId: number, enterpriseId: number): Promise<any>;
+  updateUserEnterprise(userId: number, enterpriseId: number): Promise<any>;
 }

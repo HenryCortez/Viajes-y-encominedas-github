@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { UserRepositoryPort } from "../../Domain/repositories/user.repository.port";
+import { UserRepositoryPort } from "src/User/Domain/repositories/user.repository.port";
 import { CreateUserDto } from "../dto/create-user.dto";
 
 @Injectable()

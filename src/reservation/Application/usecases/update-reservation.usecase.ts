@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { ReservationRepositoryPort } from '../../Domain/repositories/reservation.repository.port';
+import { ReservationRepositoryPort } from 'src/reservation/Domain/repositories/reservation.repository.port';
 import { CreateReservationDto } from '../dtos/create-reservation.dto';
 
 export class UpdateReservationUsecase {

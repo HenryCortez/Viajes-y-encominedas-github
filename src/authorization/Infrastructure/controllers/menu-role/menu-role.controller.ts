@@ -8,15 +8,24 @@ import {
   ParseIntPipe,
   Post,
   Res,
+  UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { MenuRole } from '@prisma/client';
 import {
   AssignMenuRoleUseCase,
   GetMenuRolesUseCase,
   RemoveMenuRoleUseCase,
-} from '../../../Application/usecases';
+} from 'src/authorization/Application/usecases';
+import { Role } from '../../decorators/authorization.decorator';
+import { AuthGuard } from 'src/auth/Infraestructure/guards/auth.guard';
+import { AuthorizationGuard } from '../../guards/authorization.guard';
 
+@ApiTags('Menu-Rol')
+@ApiBearerAuth()
 @Controller('menu-role/')
+@Role('admin')
+@UseGuards(AuthGuard, AuthorizationGuard)
 export class MenuRoleController {
   constructor(
     private readonly assignMenuRoleUsecase: AssignMenuRoleUseCase,
@@ -25,6 +34,10 @@ export class MenuRoleController {
   ) {}
 
   @Get(':roleId')
+  @ApiOperation({
+    summary: 'Listar Menus por Rol',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async getRoleMenus(
     @Res() response,
     @Param('roleId', ParseIntPipe) roleId: number,
@@ -35,6 +48,10 @@ export class MenuRoleController {
   }
 
   @Post('/create')
+  @ApiOperation({
+    summary: 'Asignar un menu a un rol',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async assignMenuRole(
     @Res() response,
     @Body() body: { menuId: number; roleId: number },
@@ -48,6 +65,10 @@ export class MenuRoleController {
   }
 
   @Delete(':menuId/:roleId')
+  @ApiOperation({
+    summary: 'Eliminar un menu de un rol',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async removeMenuRole(
     @Res() response,
     @Param('menuId') menuId: number,

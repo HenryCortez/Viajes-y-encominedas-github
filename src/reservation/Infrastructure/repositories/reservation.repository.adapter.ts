@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-import { CreateReservationDto } from '../../Application/dtos/create-reservation.dto';
-import { ReservationRepositoryPort } from '../../Domain/repositories/reservation.repository.port';
+import { CreateReservationDto } from 'src/reservation/Application/dtos/create-reservation.dto';
+import { ReservationRepositoryPort } from 'src/reservation/Domain/repositories/reservation.repository.port';
 
 @Injectable()
 export class ReservationRepositoryAdapter implements ReservationRepositoryPort {

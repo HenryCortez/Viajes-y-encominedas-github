@@ -1,6 +1,6 @@
 import { Travel, AssignmentHistory } from '@prisma/client';
-import { CreateAssignmentHistoryDto } from '../../Application/dtos/create-assigment-history';
-import { CreateTravelDto } from '../../Application/dtos/create-travel.dto';
+import { CreateAssignmentHistoryDto } from 'src/travel/Application/dtos/create-assigment-history';
+import { CreateTravelDto } from 'src/travel/Application/dtos/create-travel.dto';
 
 export interface TravelRepositoryPort {
   createTravel(travel: CreateTravelDto): Promise<Travel>;

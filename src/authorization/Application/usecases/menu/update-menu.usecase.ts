@@ -1,5 +1,5 @@
 import { Menu } from '@prisma/client';
-import { MenuRepositoryPort } from '../../../Domain/repositories/menu.repository.port';
+import { MenuRepositoryPort } from 'src/authorization/Domain/repositories/menu.repository.port';
 import { UpdateMenuDto } from '../../dto/menu/update-menu.dto';
 import { Inject } from '@nestjs/common';
 

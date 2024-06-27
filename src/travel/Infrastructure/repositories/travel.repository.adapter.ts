@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { $Enums, PrismaClient } from '@prisma/client';
-import { CreateAssignmentHistoryDto } from '../../Application/dtos/create-assigment-history';
-import { CreateTravelDto } from '../../Application/dtos/create-travel.dto';
-import { TravelRepositoryPort } from '../../Domain/repositories/travel.repository,port';
+import { $Enums, PrismaClient, Travel } from '@prisma/client';
+import { CreateAssignmentHistoryDto } from 'src/travel/Application/dtos/create-assigment-history';
+import { CreateTravelDto } from 'src/travel/Application/dtos/create-travel.dto';
+import { TravelRepositoryPort } from 'src/travel/Domain/repositories/travel.repository,port';
 
 @Injectable()
 export class TravelRepositoryAdapter implements TravelRepositoryPort {
@@ -99,7 +99,7 @@ export class TravelRepositoryAdapter implements TravelRepositoryPort {
   }
 
   async updateTravel(travelid: number, status: string): Promise<any> {
-    var travel;
+    let travel: Travel;
     switch (status){
       case "cancelar":
         travel = await this.cancelTravel(travelid);
@@ -109,6 +109,50 @@ export class TravelRepositoryAdapter implements TravelRepositoryPort {
         break;
       case "terminar":
         travel = await this.changeStatus(travelid, 'Finalizado');
+        let history = await this.prisma.assignmentHistory.findUnique({
+          where: {
+            id: travel.assignmentHistoryId,
+          },
+        });
+        let wallet = await this.prisma.wallet.findUnique({
+          where: {
+            driverId: history.driverId,
+          },
+        });
+        await this.prisma.walletTransaction.create({
+          data: {
+            travelId: travelid,
+            walletId: wallet.id,
+            transactionDate: new Date(),
+            amount: (
+              await this.prisma.reservation.aggregate({
+                _sum: {
+                  total: true,
+                },
+                where: {
+                  travelId: travelid,
+                },
+              })
+            )._sum.total,
+          },
+        });
+        await this.prisma.wallet.update({
+          where: {
+            id: wallet.id,
+          },
+          data: {
+            balance: (
+              await this.prisma.walletTransaction.aggregate({
+                _sum: {
+                  amount: true,
+                },
+                where: {
+                  walletId: wallet.id,
+                },
+              })
+            )._sum.amount,
+          },
+        });
         break;
     }
     return travel;

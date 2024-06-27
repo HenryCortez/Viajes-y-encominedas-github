@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { UserModule } from "./User/user.module";
+import { UserModule } from './User/user.module';
 import { CommonModule } from './common/common.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthorizationModule } from './authorization/authorization.module';
@@ -12,6 +12,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
 import { RouteModule } from './route/route.module';
 import { TravelModule } from './travel/travel.module';
 import { ReservationModule } from './reservation/reservation.module';
+import { WalletModule } from './wallet/wallet.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { ReservationModule } from './reservation/reservation.module';
     RouteModule,
     TravelModule,
     ReservationModule,
+    WalletModule,
   ],
   controllers: [],
   providers: [],

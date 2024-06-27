@@ -1,5 +1,5 @@
 import { Vehicle } from "@prisma/client";
-import { VehicleRepositoryPort } from "../../Domain/repositories/vehicle.repository.port";
+import { VehicleRepositoryPort } from "src/vehicle/Domain/repositories/vehicle.repository.port";
 import {UpdateVehicleDto} from '../dto/vehicle/update-vehicle.dto';
 import {Inject} from "@nestjs/common";
 

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { CommonModule } from '../../common/common.module';
+import { CommonModule } from 'src/common/common.module';
 import { CreateAssignmentHistoryUsecase } from './usecases/create-assigment-history.usecase';
 import { CreateTravelUsecase } from './usecases/create-travel.usecase';
 import { ListTravelsUsecase } from './usecases/list-travel.usecase';

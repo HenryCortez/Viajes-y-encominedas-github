@@ -6,7 +6,7 @@ import { MenuController } from './controllers/menu/menu.controller';
 import { PermissionController } from './controllers/permission/permission.controller';
 import { MenuRoleController } from './controllers/menu-role/menu-role.controller';
 import { MenuRolePermissionController } from './controllers/menu-role-permission/menu-role-permission.controller';
-import { CommonModule } from '../../common/common.module';
+import { CommonModule } from 'src/common/common.module';
 
 
 @Module({

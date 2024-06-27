@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { RequestRepositoryPort } from '../../Domain/repositories/request.repository.port';
+import { RequestRepositoryPort } from 'src/request/Domain/repositories/request.repository.port';
 import { UpdateRequestDto } from '../dtos/update-request.dto';
 import { Request } from '@prisma/client';
 

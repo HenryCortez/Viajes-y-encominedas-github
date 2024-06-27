@@ -9,17 +9,26 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Permission } from '@prisma/client';
-import { CreatePermissionDto } from '../../../Application/dto/permission/create-permission.dto';
+import { CreatePermissionDto } from 'src/authorization/Application/dto/permission/create-permission.dto';
 import {
   CreatePermissionUseCase,
   DeletePermissionUseCase,
   ListPermissionsUseCase,
   UpdatePermissionUseCase,
-} from '../../../Application/usecases';
+} from 'src/authorization/Application/usecases';
+import { AuthorizationGuard } from '../../guards/authorization.guard';
+import { AuthGuard } from 'src/auth/Infraestructure/guards/auth.guard';
+import { Role } from '../../decorators/authorization.decorator';
 
+@ApiTags('Permisos')
+@ApiBearerAuth()
 @Controller('permissions/')
+@Role('admin')
+@UseGuards(AuthGuard, AuthorizationGuard)
 export class PermissionController {
   constructor(
     private readonly createPermissionUsecase: CreatePermissionUseCase,
@@ -29,6 +38,10 @@ export class PermissionController {
   ) {}
 
   @Get()
+  @ApiOperation({
+    summary: 'Listar Permisos',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async listPermissions(@Res() request): Promise<Permission[]> {
     const permissions: Permission[] =
       await this.listPermissionsUsecase.execute();
@@ -36,6 +49,10 @@ export class PermissionController {
   }
 
   @Post('/create')
+  @ApiOperation({
+    summary: 'Crear Permiso',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async createPermission(
     @Res() request,
     @Body() permission: CreatePermissionDto,
@@ -46,6 +63,10 @@ export class PermissionController {
   }
 
   @Put(':id')
+  @ApiOperation({
+    summary: 'Actualizar Permiso',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async updatePermission(
     @Res() request,
     @Param('id', ParseIntPipe) id: number,
@@ -57,6 +78,10 @@ export class PermissionController {
   }
 
   @Delete(':id')
+  @ApiOperation({
+    summary: 'Eliminar Permiso',
+    description: 'Este endpoint es accesible por los roles: admin.',
+  })
   async deletePermission(
     @Res() request,
     @Param('id', ParseIntPipe) id: number,

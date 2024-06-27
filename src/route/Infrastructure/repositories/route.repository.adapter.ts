@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaClient, Route, RoutesDetail } from '@prisma/client';
-import { CreateRouteDetailDto } from '../../Application/dtos/create-route-detail.dto';
-import { CreateRouteDto } from '../../Application/dtos/create-route.dto';
-import { RouteRepositoryPort } from '../../Domain/repositories/route.repository.port';
+import { CreateRouteDetailDto } from 'src/route/Application/dtos/create-route-detail.dto';
+import { CreateRouteDto } from 'src/route/Application/dtos/create-route.dto';
+import { RouteRepositoryPort } from 'src/route/Domain/repositories/route.repository.port';
 
 @Injectable()
 export class RouteRepostoryAdapter implements RouteRepositoryPort {
